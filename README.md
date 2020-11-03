@@ -24,9 +24,13 @@ func GetUsers(c *gin.Context) {
 }
 ```
 
-general Start
-```shell
+Database
+```
 sudo /etc/init.d/postgresql restart
+```
+
+General Running
+```shell
 go run main.go
 ```
 
