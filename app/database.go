@@ -1,4 +1,4 @@
-package config
+package app
 
 import (
 	"fmt"
@@ -11,48 +11,49 @@ import (
 var DB *gorm.DB
 var err error
 
-// DBConfig represnets db configration
-type DBConfig struct {
+// Database configuration for database
+type Database struct {
+	Type     string
 	Host     string
 	Port     int
 	User     string
-	DBName   string
 	Password string
+	Name     string
 }
 
-// buildDBConfig => setup db config
-func buildDBConfig() *DBConfig {
-	dbConfig := DBConfig{
+
+// buildDatabase => setup db config
+func buildDatabase() *Database {
+	dbConfig := Database{
 		Host:     "localhost",
 		Port:     5432,
 		User:     "chris",
 		Password: "chris",
-		DBName:   "gin_blog",
+		Name:     "gin_blog",
 	}
 	return &dbConfig
 }
 
 // getDsn => dsn for postgres
-func getDsn(dbConfig *DBConfig) string {
+func getDsn(dbConfig *Database) string {
 	return fmt.Sprintf(
 		"user=%s password=%s dbname=%s port=%d sslmode=disable TimeZone=Asia/Shanghai",
 		dbConfig.User,
 		dbConfig.Password,
-		dbConfig.DBName,
+		dbConfig.Name,
 		dbConfig.Port,
 	)
 }
 
 // connectDB => connect to postgresql db
 func connectDB() (*gorm.DB, error) {
-	db, err := gorm.Open(postgres.Open(getDsn(buildDBConfig())), &gorm.Config{})
+	db, err := gorm.Open(postgres.Open(getDsn(buildDatabase())), &gorm.Config{})
 	return db, err
 }
 
-// GetDB => get db instance @singleton
-func GetDB() (*gorm.DB, error) {
+// InitDB => get db instance @singleton
+func InitDB() {
 	if DB == nil {
 		DB, err = connectDB()
 	}
-	return DB, err
 }

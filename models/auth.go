@@ -1,7 +1,7 @@
 package models
 
 import (
-	"gin_blog/config"
+	"gin_blog/app"
 
 	"gorm.io/gorm"
 )
@@ -14,7 +14,7 @@ type Auth struct {
 
 func CheckAuth(username, password string) (bool, error) {
 	var auth Auth
-	err := config.DB.Select("id").Where(Auth{Username: username, Password: password}).First(&auth).Error
+	err := app.DB.Select("id").Where(Auth{Username: username, Password: password}).First(&auth).Error
 	if err != nil && err != gorm.ErrRecordNotFound {
 		return false, err
 	}
