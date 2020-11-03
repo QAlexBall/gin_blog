@@ -1,0 +1,18 @@
+info:
+  contact: {}
+paths:
+  /api-user/user:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "500":
+          description: Internal Server Error
+          schema:
+            type: ""
+      summary: Get User List
+swagger: "2.0"

@@ -1,0 +1,30 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/api-user/user": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get User List",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": ""
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": ""
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
