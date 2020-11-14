@@ -25,6 +25,11 @@ func GetUsers(c *gin.Context) {
 }
 
 //CreateUser ... Create User
+// @Summary Create User
+// @Produce json
+// @Success 200 {} string
+// @Failure 500 {} string
+// @Router /api-user/user [post]
 func CreateUser(c *gin.Context) {
 	var user models.User
 	c.BindJSON(&user)
@@ -38,6 +43,11 @@ func CreateUser(c *gin.Context) {
 }
 
 //GetUserByID ... Get the user by id
+// @Summary Get User By ID
+// @Produce json
+// @Success 200 {} string
+// @Failure 500 {} string
+// @Router /api-user/user/:id [get]
 func GetUserByID(c *gin.Context) {
 	id := c.Params.ByName("id")
 	var user models.User
@@ -50,6 +60,11 @@ func GetUserByID(c *gin.Context) {
 }
 
 //UpdateUser ... Update the user information
+// @Summary Update User
+// @Produce json
+// @Success 200 {} string
+// @Failure 500 {} string
+// @Router /api-user/user/:id [put]
 func UpdateUser(c *gin.Context) {
 	var user models.User
 	id := c.Params.ByName("id")
@@ -67,6 +82,11 @@ func UpdateUser(c *gin.Context) {
 }
 
 //DeleteUser ... Delete the user
+// @Summary Delete User
+// @Produce json
+// @Success 200 {} string
+// @Failure 500 {} string
+// @Router /api-user/user/:id [delete]
 func DeleteUser(c *gin.Context) {
 	var user models.User
 	id := c.Params.ByName("id")

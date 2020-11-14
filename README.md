@@ -39,3 +39,27 @@ Use air (hot restart)
 # create .air.conf in project folder
 air -c .air.conf
 ```
+
+API
+```
+# get user list
+curl -X GET "http://localhost:8080/api-user/user" -H "accept: application/json"
+
+# create user
+curl -H "Content-Type: application/json" \
+--request POST \
+--data '{"name":"chris","email":"chris@me.com","phone":"100","address":"nowhere"}'\
+
+# get user by id
+curl -X GET "http://localhost:8080/api-user/user/1" -H "accept: application/json"
+
+# delete user
+curl -X DELETE "http://localhost:8080/api-user/user/1" -H "accept: application/json"
+```
+
+## frontend
+Yew
+
+```
+cargo web start
+```

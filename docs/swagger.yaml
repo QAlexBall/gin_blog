@@ -15,4 +15,57 @@ paths:
           schema:
             type: ""
       summary: Get User List
+    post:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "500":
+          description: Internal Server Error
+          schema:
+            type: ""
+      summary: Create User
+  /api-user/user/:id:
+    delete:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "500":
+          description: Internal Server Error
+          schema:
+            type: ""
+      summary: Delete User
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "500":
+          description: Internal Server Error
+          schema:
+            type: ""
+      summary: Get User By ID
+    put:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: ""
+        "500":
+          description: Internal Server Error
+          schema:
+            type: ""
+      summary: Update User
 swagger: "2.0"
