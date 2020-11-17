@@ -16,7 +16,7 @@ type User struct {
 
 // TableName => tablename
 func (b *User) TableName() string {
-	return "user"
+	return "gin_blog_user"
 }
 
 //GetAllUsers Fetch all user data

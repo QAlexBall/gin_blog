@@ -25,8 +25,16 @@ func GetUsers(c *gin.Context) {
 ```
 
 Database
+Ubuntu
 ```
 sudo /etc/init.d/postgresql restart
+```
+MacOS Big sur with Postgresql@13
+```
+pg_ctl -D /usr/local/var/postgres start
+createdb gin_blog
+psql gin_blog
+create role with superuser password 'chris'
 ```
 
 General Running
@@ -48,7 +56,8 @@ curl -X GET "http://localhost:8080/api-user/user" -H "accept: application/json"
 # create user
 curl -H "Content-Type: application/json" \
 --request POST \
---data '{"name":"chris","email":"chris@me.com","phone":"100","address":"nowhere"}'\
+--data '{"name":"chris","email":"chris@me.com","phone":"100","address":"nowhere"}' \
+"http://localhost:8080/api-user/user"
 
 # get user by id
 curl -X GET "http://localhost:8080/api-user/user/1" -H "accept: application/json"
