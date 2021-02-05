@@ -5,4 +5,5 @@ else
     echo "posgresql is running..."
 fi
 
+sudo /etc/init.d/postgresql restart 
 air -c .air.conf
